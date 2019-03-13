@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jakob Lindskog</title>
+    <link rel="stylesheet" href="tachyons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <style>
+        .ff-1 {
+            font-family: 'Abel';
+        }
+
+        .bg-jakob {
+            background-image: url('jakob.jpg')
+        }
+
+        .bw {
+            filter: grayscale(.2);
+            /* background-blend-mode: luminosity; */
+            opacity: .7;
+            transition-duration: .35s;
+            /* transition-property: filter; */
+        }
+
+        #content {
+            transition-duration: .23s;
+            transition-property: opacity translate;
+        }
+
+        .hover-col:hover {
+            /* filter: grayscale(0) brightness(1.1);
+            opacity: 1; */
+        }
+
+        .z--1 {
+            z-index: -1;
+        }
+
+        .pointer-events-none {
+            pointer-events: none;
+        }
+
+        @media screen and (min-width: 30em) {
+            .w6-l {
+                width: 46rem;
+            }
+
+            .h6-l {
+                height: 46rem;
+            }
+        }
+
+        .right--100 {
+            right: -100%;
+        }
+
+        .right-50 {
+            right: 50%;
+        }
+
+        .translateX-50 {
+            transform: translateX(50%);
+        }
+
+        /* #title::after {
+            content: '';
+            background-image: url('external-link-symbol.svg');
+            background-size: cover;
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+        } */
+    </style>
+</head>
+
+<body class="bg-light-yellow black-70 f2 ff-1 overflow-x-hidden overflow-x-auto-l">
+    <!-- Fixed div -->
+    <div class="z--1 dt fixed-l left-0 top-0 w-100 vh-100-l vh-50 center">
+        <!-- center circle in viewport-->
+        <div class="dtc v-mid">
+            <div class="dt center overflow-hidden br-pill bw hover-col ba bw3 b--black w6-l h6-l w-100 h-100 bg-jakob bg-yellow cover bg-center pa4">
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="fl z-1 dit bl b--black-80 bw5-ns pl5-ns pl4 f2">
+            <h1 class="fw1 ttu underline tracked-mega-ns tracked"><a data-text="empty">Jakob Lindskog</a></h1>
+            <div class="">
+                <span class="tracked-mega">projekt</span>
+                <!-- <a class="ml3 v-mid no-underline black" href="#tjenis">+</a> -->
+                <div class="ml4 tracked-mega">
+                    <a target="_blank" data-text="videothumbnail" class="mv4 dt ttu black" href="https://github.com/MrYakobo/video-thumbnail">video-thumbnail</a>
+                    <a target="_blank" data-text="bitutil" class="mv4 dt ttu black" href="https://github.com/MrYakobo/bitutil">bitutil</a>
+                    <a target="_blank" data-text="kiosk" class="mv4 dt ttu black" href="https://github.com/MrYakobo/kiosk">kiosk</a>
+                    <a target="_blank" data-text="mdam" class="mv4 dt ttu black" href="https://github.com/MrYakobo/mdam">mdam</a>
+                    <a target="_blank" data-text="kaffekollen" class="mv4 dt ttu black" href="https://github.com/MrYakobo/kaffekollen.nu">kaffekollen</a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="fr tr z-1 mr0 dit br b--black-80 bw5-ns pr5-ns pl3-m f2">
+            <h1 class="fw1 ttu tracked-mega-l tracked-m tracked-tight underline">färdigheter</h1>
+            <div class="">
+                <!-- <a class="ml3 v-mid no-underline black" href="#tjenis">+</a> -->
+                <div class="tracked-ns dit list bb b--black-40 bw1">
+                    <span class="tracked-mega">utbildning</span>
+                    <span class="ml-auto mr0 mv4 dt ttu f2" href="#">Pågående:<br>Civilingenjör i Datateknik</span>
+                    <span class="ml-auto mr0 mv4 dt ttu" href="#">teknikprogrammet</span>
+                </div>
+
+                <div class="tracked mr4 mt4">
+                    <span class="tracked-mega">specs</span>
+                    <span class="ml-auto mr0 mv4 dt ttu f3 black-60">Operativsystem: Arch Linux</span>
+                    <span class="ml-auto mr0 mv4 dt ttu f3 black-60">ålder: 21 år</span>
+                    <span class="ml-auto mr0 mv4 dt ttu f3 black-60">kaffekomsumption: hög</span>
+                    <span class="ml-auto mr0 mv4 dt ttu f3 black-60">fritidsintresse: programmering</span>
+                    <span class="ml-auto mr0 mv4 dt ttu f3-ns f4 black-60">kontakt: <a class="black-90 no-underline" href="mailto:jakob.lindskog@gmail.com">jakob.lindskog@gmail.com</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed top-2 bg-yellow br3 ba shadow-3 right--100 ph4 pb3 tc w6-l w-100" id="content">
+        <a class="no-underline black absolute right-2 top-2" data-text="empty" href="#"><img class="w2" src="cancel.svg"></a>
+        <p class="f1 tracked-mega ttu " id="title"></p>
+        <p class="f3 fw6 mw6 tl center" id="text"></p>
+        <p id="suffix" class="ma0"></p>
+    </div>
+    </div>
+
+</body>
+<script>
+    //disable javascript interactivity if on mobile/tablet
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        var text = {
+            kiosk: {
+                title: 'kiosk',
+                text: `<a class="black hover-blue" href="https://electronjs.org">Electron</a> är ett verktyg som används för att skapa applikationer som kan köras på alla operativsystem med hjälp av webbteknik.
+                        <br><br>
+                        Problemet med Electron är att det är statiskt länkat, dvs varje program som vill använda sig av Electron ökar i storlek med 50MB.
+                        <br><br>
+                        <a class="black hover-blue" href="https://github.com/MrYakobo/kiosk">Kiosk</a> är min konkurrent till Electron, som istället för att inkludera en webbläsare så använder utvecklaren sig av installerade webbläsare till sina applikationer istället i så kallat kiosk mode, så att webbläsaren i fråga gömmer bokmärkesfält och addressbar, och är i så kallat 'kiosk-mode'.
+                        <br><br>
+                    `,
+                suffix: `Skrivet i Go.`
+            },
+            mdam: {
+                title: 'mdam',
+                text: `MDAM är ett program som omvandlar märkspråket <a class="black hover-blue" href="https://daringfireball.net/projects/markdown/">Markdown</a> tillsammans med mattebiblioteket <a class="black hover-blue" href="http://asciimath.org">Asciimath</a> till fristående HTML-sidor, med matten renderad i SVG.
+                        <br><br>
+                        Projektet är praktiskt sett ett kopplingsprogram mellan HTML+AsciiMath till HTML+SVG transpilern <a class="black hover-blue" href="https://github.com/pkra/mathjax-node-page">mathjax-node-page</a> och Markdown till HTML transpilern <a class="black hover-blue" href="https://github.com/showdownjs/showdown">showdown</a>.
+                `,
+                suffix: `Skrivet i NodeJS.`
+
+            },
+            videothumbnail: {
+                title: 'video<br>thumbnail',
+                text: `På exempelvis Youtube finns det förhandsvisningar för alla videos, runt 15 sekunder styck. Deras uppgift är att representera videon i större grad än vad en bild hade kunnat göra.
+                        <br>
+                        <br><div class='flex'><div style='flex: 3' class='pr4'>video-thumbnail gör samma sak med en given inputfilm. Till höger visas en 15 sekunders lång GIF av filmen Bick Buck Bunny. GIFen har genererats med video-thumbnail.</div>
+                        <div style='flex: 2'><img class="bw1 shadow-1 ba mt3 dt br4 center" src="https://user-images.githubusercontent.com/11942597/29752124-6d60e0fc-8b58-11e7-837d-5a7f0d068320.gif"></div></div>
+                    `,
+                suffix: 'Skrivet i NodeJS.'
+            },
+            bitutil: {
+                title: 'bitutil',
+                text: `bitutil är en webbapp som du kan använda för att räkna med binära tal. Tanken är att webbappen ska vara intuitiv och snabb att använda. Tillgängliga funktioner är höger/vänster-skift, xor samt input i hexadecimalt eller decimalt format.
+            <img class='br3 bw1 ba b--black-30 mt3 w-100' src='bitutil.png'>`,
+                suffix: 'Skrivet i VueJS, pröva på <a class="black hover-blue" href="http://bitutil.tk">bitutil.tk</a>'
+            },
+            kaffekollen: {
+                title: 'kaffekollen',
+                text: `Du inhandlar kaffe till ordinarie pris. Segt, men kaffet är en livssubstans och att skippa det är inget alternativ. Du upptäcker senare att du har missat ett kaffeerbjudande i en annan butik. Fruktansvärt! I protest mot denna bitterhet startades kaffekollen, prisjakt fast för kaffe. Var hittar jag det bästa priset på kaffe i min stad? Kaffekollen har svaret.
+            <br><br>
+            Metoden är att webscapea alla stora matkedjor efter kaffepriser, vilket sparas i JSON-filer för att sen kunna jämföras av en nodejs-server. Användaren bistår med favoritkaffesmak och postnummer till sin stad, och kaffekollen svarar med butik, kaffesoft och pris. Tyvärr visade sig projektet bjuda på en enorm komplexitet, framförallt i att konsumera matkedjornas web-apier via bakvägen utan dokumentation, samt att sätta sig in i hur deras erbjudande-system fungerar. Se filen <a class='black hover-blue' href="https://github.com/MrYakobo/kaffekollen.nu/blob/master/Mocup.md">Mocup.md</a> för ideer och mappen <a class='black hover-blue' href="https://github.com/MrYakobo/kaffekollen.nu/tree/master/lib">lib/</a> för webscrape-kod.`,
+                suffix: 'Projektet var tänkt att vara skrivet i NodeJS och VueJS.'
+            },
+            empty: {
+                title: '',
+                text: '',
+                suffix: ''
+            }
+        }
+
+        for (const el of document.querySelectorAll('a[data-text]')) {
+            el.addEventListener('click', (e) => {
+                show(el)
+                e.preventDefault()
+            }, true)
+            // el.addEventListener('mouseout', () => {
+            // hide(el)
+            // }, true)
+        }
+
+        function show(e) {
+            var key = e.getAttribute('data-text')
+            if (key == 'empty') {
+                hide();
+                return
+            }
+            var t = text[key]
+            var elText = document.getElementById('text')
+
+            document.getElementById('title').innerHTML = `<a class='blue hover-black' target='_blank' href="${e.getAttribute('href')}">${t.title}</a>`
+            elText.innerHTML = t.text
+            if (t.text.length > 900) {
+                elText.classList.remove('f3')
+                elText.classList.add('f4')
+            } else {
+                elText.classList.remove('f4')
+                elText.classList.add('f3')
+            }
+
+            document.getElementById('suffix').innerHTML = t.suffix
+            document.getElementById('content').classList.remove('o-0', 'right--100')
+            document.getElementById('content').classList.add('right-50', 'translateX-50')
+        }
+
+        function hide() {
+            document.getElementById('content').classList.add('o-0', 'right--100')
+            document.getElementById('content').classList.remove('right-50', 'translateX-50')
+        }
+    }
+</script>
+
+</html>
