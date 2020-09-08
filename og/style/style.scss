@@ -1,0 +1,246 @@
+/* SCSS HSL */
+// $dark: hsla(212, 13%, 38%, 1);
+// $medium-dark: hsla(163, 20%, 61%, 1);
+// $light: hsla(0, 0%, 98%, 1);
+// $accent-1: hsla(153, 39%, 82%, 1);
+// $accent-2: hsla(10, 100%, 60%, 1);
+
+$light: hsla(341, 80%, 96%, 1);
+$accent-1: hsla(359, 76%, 74%, 1);
+$accent-2: hsla(348, 66%, 64%, 1);
+$medium-dark: hsla(218, 79%, 24%, 1);
+$dark: hsla(238, 61%, 16%, 1);
+
+$light: #f7fff7ff;
+$dark: #343434ff;
+$medium-dark: #2f3061ff;
+$accent-1: #ffe66dff;
+$accent-2: #6ca6c1ff;
+
+
+@mixin center {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.gray {
+    color: $accent-1;
+}
+
+.topright {
+    grid-area: topright;
+    @include center;
+    color: $accent-2;
+}
+
+img {
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    overflow-y: hidden;
+    font-family: 'Noto Sans';
+}
+
+@mixin invert-on-hover-link($bg, $fg) {
+    background: $bg;
+    // box-shadow: inset 0px 0px 0px 1px $dark;
+
+    &:not(.internal) {
+        color: $fg;
+
+        // invert
+        &:hover {
+            color: $bg;
+            background: $fg;
+
+            &::after {
+                color: $bg;
+                opacity: 1;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.sparkles {
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 100px repeat(4, 1fr);
+    grid-template-rows: 50px 65px 1fr 250px;
+
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    // https: //css-tricks.com/the-trick-to-viewport-units-on-mobile/
+
+    grid-template-areas: "header header header header topright"
+        "div6   div1   div5   div3   div2"
+        "div7   div7   div7   div4   div2"
+        "div7   div7   div7   div8   div2"
+    ;
+    // background: $dark;
+    background: url('../i/bgstar.gif');
+    justify-content: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        font-size: .8em;
+    }
+
+    .parent {
+        grid-template-columns: 1fr 1fr 2fr;
+        grid-template-rows: 50px 50px repeat(4, 1fr);
+        grid-template-areas:
+            "header div6   topright"
+            "div1   div5   div3"
+            "div4   div4   div2"
+            "div7   div7   div2"
+            "div7   div7   div2"
+            "div7   div7   div8"
+        ;
+
+        .header a {
+            line-height: 2em;
+        }
+    }
+}
+
+.parent {
+    .header {
+        grid-area: header;
+        background: $dark;
+        justify-content: left;
+        padding-left: 20px;
+
+        a {
+            color: #fff;
+            font-size: 1.5em;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    >a {
+        @include center;
+
+        transition-duration: .15s;
+        transition-property: font-weight, color, background;
+
+        &:not(.internal)::after {
+            font-weight: 600;
+            content: '»';
+            opacity: 0;
+            transition-duration: .15s;
+            transition-property: opacity, transform;
+            line-height: 0;
+            font-size: 0.7em;
+            padding-left: 10px;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+
+        font-size: 2em;
+        text-decoration: none;
+
+        @include invert-on-hover-link($light, $accent-2);
+    }
+
+    >.div1 {
+        // $projekt
+        @include invert-on-hover-link($accent-1, $dark);
+    }
+
+    >.div3 {
+        // $linkedin: #0077b5;
+        @include invert-on-hover-link($accent-1, $dark);
+    }
+
+    >.div5 {
+        // $blog-bg: #221f29;
+        // $blog-fg: #ff6266;
+        @include invert-on-hover-link($dark, $accent-1);
+    }
+
+    >.div4 {
+        text-align: center;
+        color: #fff;
+        padding: 10px;
+    }
+
+    >.div6 {
+        // background: $medium-dark;
+        position: relative;
+        background: $dark;
+    }
+
+    >.div8 {
+        // background: $accent-1;
+        position: relative;
+    }
+
+}
+
+.bigfont {
+    font-size: 5em;
+}
+
+#filter_link {
+    @include invert-on-hover-link(darken($dark, 5), $light);
+    padding: 10px;
+    font-size: 1em;
+}
+
+.wavy {
+    filter: url('#wavy');
+    font-weight: 900;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #ffe62a 0%, #ed02c4 46%, #efff11 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bigfont.wavy {
+    text-shadow: -1px -9px 0px $dark;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.monospace {
+    font-family: 'IBM Plex Mono';
+}
+
+
+@for $i from 1 to 10 {
+    .div#{$i} {
+        // background: adjust-hue($color: rgb(255, 65, 65), $degrees: $i*50);
+        grid-area: div#{$i};
+    }
+}
