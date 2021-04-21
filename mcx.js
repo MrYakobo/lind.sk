@@ -12,6 +12,19 @@ AUTO_TRANS = "tallybutton-1643"
 AUDIO_HDMI_4_PANEL_IDX = 11
 AUDIO_LINE_PANEL_IDX = 12
 
+function authenticate(){
+    document.getElementById("textfield-2503-inputEl").value = "Password1!" //supersecret
+    setTimeout(()=>{
+        click("button-2504")
+    }, 100)
+}
+
+(function(){
+    setTimeout(()=>{
+        authenticate()
+    }, 100)
+})()
+
 function click(id) {
     document.getElementById(id).click()
     return new Promise(res => setTimeout(res, 100))
