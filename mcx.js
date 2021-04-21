@@ -12,18 +12,43 @@ AUTO_TRANS = "tallybutton-1643"
 AUDIO_HDMI_4_PANEL_IDX = 11
 AUDIO_LINE_PANEL_IDX = 12
 
+//PSW_INPUT = "textfield-2503-inputEl"
+LOGIN_BTN = "button-2504"
+//<a class="x-btn x-unselectable x-abs-layout-item x-window-item x-btn-default-small x-item-disabled x-btn-disabled" hidefocus="on" unselectable="on" role="button" aria-hidden="false" aria-disabled="true" id="button-2504" data-componentid="button-2504">
+ 
+
+//<span id="button-2504-btnWrap" data-ref="btnWrap" role="presentation" unselectable="on" style="table-layout:fixed;" class="x-btn-wrap x-btn-wrap-default-small "><span id="button-2504-btnEl" data-ref="btnEl" role="presentation" unselectable="on" style="height:auto;" class="x-btn-button x-btn-button-default-small x-btn-text    x-btn-button-center "><span id="button-2504-btnIconEl" data-ref="btnIconEl" role="presentation" unselectable="on" class="x-btn-icon-el x-btn-icon-el-default-small  " style=""></span><span id="button-2504-btnInnerEl" data-ref="btnInnerEl" unselectable="on" class="x-btn-inner x-btn-inner-default-small">Log In</span></span></span></a>
+
+
+
 function authenticate(){
-    document.getElementById("textfield-2503-inputEl").value = "Password1!" //supersecret
+    //document.getElementById(PSW_INPUT).value = "Password1!" //supersecret
+    var p = document.querySelector("input[type='password']")
+    p.value = "Password1!"
     setTimeout(()=>{
-        click("button-2504")
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        })
+        p.dispatchEvent(event)
+
+        setTimeout(()=>{
+            var attrs = ["hidefocus", "unselectable", "aria-hidden", "aria-disabled"]
+            var btn = document.getElementById(LOGIN_BTN)
+            attrs.forEach(a=>{btn.removeAttribute(a)})
+            btn.classList.remove("x-btn-disabled", "x-item-disabled", "x-unselectable")
+            click(LOGIN_BTN)
+        }, 100)
     }, 100)
 }
 
 (function(){
-    setTimeout(()=>{
-        authenticate()
-        //wait for element to appear
-    }, 5000)
+    var x = setInterval(function(){
+        if(document.querySelector("input[type='password']") != null) {
+            authenticate()
+            clearInterval(x)
+        }
+    }, 100)
 })()
 
 function click(id) {
