@@ -22,7 +22,8 @@ function authenticate(){
 (function(){
     setTimeout(()=>{
         authenticate()
-    }, 100)
+        //wait for element to appear
+    }, 5000)
 })()
 
 function click(id) {
