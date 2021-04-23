@@ -20,6 +20,10 @@ LOGIN_BTN = "button-2504"
 //<span id="button-2504-btnWrap" data-ref="btnWrap" role="presentation" unselectable="on" style="table-layout:fixed;" class="x-btn-wrap x-btn-wrap-default-small "><span id="button-2504-btnEl" data-ref="btnEl" role="presentation" unselectable="on" style="height:auto;" class="x-btn-button x-btn-button-default-small x-btn-text    x-btn-button-center "><span id="button-2504-btnIconEl" data-ref="btnIconEl" role="presentation" unselectable="on" class="x-btn-icon-el x-btn-icon-el-default-small  " style=""></span><span id="button-2504-btnInnerEl" data-ref="btnInnerEl" unselectable="on" class="x-btn-inner x-btn-inner-default-small">Log In</span></span></span></a>
 
 
+// DEFAULT: När man laddar = NEXT eller Play, så visas videon
+// alltså börjar vi med att spela videon
+
+var IS_PLAYING = true
 
 function authenticate(){
     //document.getElementById(PSW_INPUT).value = "Password1!" //supersecret
@@ -91,6 +95,7 @@ async function play() {
     if (is_active(AUDIO_LINE_CH_ON)) {
         await click(AUDIO_LINE_CH_ON)
     }
+    IS_PLAYING = true
 }
 async function stop(){
     await click(BKGD)
@@ -113,6 +118,11 @@ async function stop(){
 
     // autotrans
     await click(AUTO_TRANS)
+    IS_PLAYING = false
+}
+
+function next(){
+    play()
 }
 
 /**
