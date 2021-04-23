@@ -98,8 +98,6 @@ async function play() {
     IS_PLAYING = true
 }
 async function stop(){
-    await click(BKGD)
-
     // we need to have this area active to read the state
     if (curr_panel_idx() != AUDIO_HDMI_4_PANEL_IDX) {
         await click(AUDIO_HDMI_4)
@@ -116,8 +114,13 @@ async function stop(){
         await click(AUDIO_LINE_CH_ON)
     }
 
-    // autotrans
-    await click(AUTO_TRANS)
+    // if image output is currently hdmi 4, autotrans
+    if (is_active(A_HDMI_4)){
+        // autotrans
+        await click(BKGD)
+        await click(AUTO_TRANS)
+    }
+
     IS_PLAYING = false
 }
 
