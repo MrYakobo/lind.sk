@@ -121,9 +121,17 @@ async function stop(){
     IS_PLAYING = false
 }
 
-function next(){
-    play()
-}
+//FOR USE IN IFRAMES
+window.addEventListener('message', event => {
+    var msg = event.data
+    console.log(msg)
+    if (msg == "PLAY") {
+        play()
+    }
+    if (msg == "STOP") {
+        stop()
+    }
+})
 
 /**
 När man spelar upp ett videoklipp i Caspar. Gör en grupp som automatiserar:
