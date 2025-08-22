@@ -9,7 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="i/ie_new.gif">
+    <style>
+        body {
+            font-family: Inter;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +30,6 @@
                     class="gray">/</span>og</a></div>
         <div class="topright">
             <img src="i/ie2.gif" style="height: 24px; width: auto;">
-            <p class="monospace">sommarprat 2021??? &darr;</p>
         </div>
         <!-- <div class="div1"><a class="bold" href="https://github.com/MrYakobo/">projekt</a></div> -->
         <a class="bold div1" rel="me" href="https://github.com/MrYakobo/">projekt</a>
@@ -34,7 +45,7 @@
                     själv om du törs</a> -->
             </small>
         </div>
-        <a class="div5 bold" href="https://b.lind.sk">&nbsp;&nbsp;&nbsp;blogg</a>
+        <a class="div5 bold" href="https://tjenis.bearblog.dev/">&nbsp;&nbsp;&nbsp;blogg</a>
         <div class="div6">
             <img style="object-fit: contain; padding: 10px;" src="i/links.gif">
             <img class="sparkles" src="i/sparkles.gif">
@@ -66,9 +77,9 @@
     enable_filter()
 
     function set_vh100() {
-        var vh = window.innerHeight * 0.01;
+        var vh = window.innerHeight * 0.01
         // Then we set the value in the --vh custom property to the root of the document
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
     }
     // window.addEventListener('resize', function () {
     //     set_vh100()
